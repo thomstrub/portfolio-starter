@@ -11,13 +11,18 @@ const blobAnimation = keyframes `
 100% { transform: scale(1)   translate(10px, -20px); }
 `;
 
+function chooseAnimation (){
+    const num = Math.floor(Math.random() * 3)
+    console.log(num, "animation num")
+}
+
 const StyledBlob = styled.div`
 position: absolute;
 top: 0;
 left: 0;
 fill: #023F92;
 width: 10vmax;
-zIndex: -2;
+z-index: -2;
 animation: ${blobAnimation} 80s ease-in-out infinite;
 transformOrigin: 60% 50%
 `;
