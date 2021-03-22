@@ -40,8 +40,8 @@ export default function Blob({shape}){
         78%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
         80%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
         100% { transform: scale(1)   translate(10px, -20px); }
-    `
-    
+    `;
+
     const styledBlob = styled("div")`
         position: absolute;
         top: 0;
@@ -49,11 +49,10 @@ export default function Blob({shape}){
         fill: #023F92;
         width: 10vmax;
         zIndex: -2;
-        animation-name: ${blobAnimation};
-        animation: move 80s ease-in-out infinite;
+        animation: ${blobAnimation} move 80s ease-in-out infinite;
         
         transformOrigin: 60% 50%
-    `
+    `;
     
 
     return (
