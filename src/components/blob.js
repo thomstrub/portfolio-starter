@@ -38,16 +38,29 @@ function chooseAnimation (){
             return blobAnimationTwo
         case 2:
             return blobAnimationThree
+        default:
+            return blobAnimationOne;
     }
 }
 
-const StyledBlob = styled.div`
+const StyledBlobOne = styled.div`
 position: absolute;
 top: 0;
 left: 0;
 fill: #023F92;
 width: 10vmax;
 z-index: -2;
+animation: ${chooseAnimation()} 80s ease-in-out infinite;
+transformOrigin: 60% 50%
+`;
+
+const StyledBlobTwo = styled.div`
+position: absolute;
+top: 10;
+left: 10;
+fill: #023F92;
+width: 10vmax;
+z-index: -3;
 animation: ${chooseAnimation()} 80s ease-in-out infinite;
 transformOrigin: 60% 50%
 `;
@@ -101,6 +114,10 @@ export default function Blob({shape}){
         //     { blobShape(shape) }
             
         // </div>
-        <StyledBlob>{ blobShape(shape) }</StyledBlob>
+        shape === "one" ? 
+            <StyledBlobOne>{ blobShape(shape) }</StyledBlobOne> 
+            :
+            <StyledBlobTwo>{ blobShape(shape) }</StyledBlobTwo> 
+        
     )
 }
