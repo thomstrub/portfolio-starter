@@ -1,6 +1,26 @@
 import React from 'react';
 import './blob.css'
-import styled, {keyframes} from 'styled-components'
+import styled, {css, keyframes} from 'styled-components'
+
+const blobAnimation = keyframes `
+0%   { transform: scale(1)   translate(10px, -20px); }
+28%  { transform: scale(0.8, 1) translate(80vw, 30vh) rotate(160deg); }
+40%  { transform: scale(0.8, 1) translate(80vw, 60vh) rotate(160deg); }
+78%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+80%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+100% { transform: scale(1)   translate(10px, -20px); }
+`;
+
+const StyledBlob = styled.div`
+position: absolute;
+top: 0;
+left: 0;
+fill: #023F92;
+width: 10vmax;
+zIndex: -2;
+animation: ${blobAnimation} 80s ease-in-out infinite;
+transformOrigin: 60% 50%
+`;
 
 export default function Blob({shape}){
 
@@ -33,26 +53,7 @@ export default function Blob({shape}){
         }
     }
 
-    const blobAnimation = keyframes `
-        0%   { transform: scale(1)   translate(10px, -20px); }
-        28%  { transform: scale(0.8, 1) translate(80vw, 30vh) rotate(160deg); }
-        40%  { transform: scale(0.8, 1) translate(80vw, 60vh) rotate(160deg); }
-        78%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
-        80%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
-        100% { transform: scale(1)   translate(10px, -20px); }
-    `;
-
-    const styledBlob = styled("div")`
-        position: absolute;
-        top: 0;
-        left: 0;
-        fill: #023F92;
-        width: 10vmax;
-        zIndex: -2;
-        animation: ${blobAnimation} move 80s ease-in-out infinite;
-        
-        transformOrigin: 60% 50%
-    `;
+ 
     
 
     return (
@@ -70,6 +71,6 @@ export default function Blob({shape}){
         //     { blobShape(shape) }
             
         // </div>
-        <styledBlob>{ blobShape(shape) }</styledBlob>
+        <StyledBlob>{ blobShape(shape) }</StyledBlob>
     )
 }
