@@ -27,8 +27,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <Blob shape="two"/>
+      
       <Blob shape="one"/>
+      <Blob shape="two"/>
       
       
       <div

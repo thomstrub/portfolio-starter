@@ -2,7 +2,7 @@ import React from 'react';
 import './blob.css'
 import styled, {css, keyframes} from 'styled-components'
 
-const blobAnimation = keyframes `
+const blobAnimationOne = keyframes `
 0%   { transform: scale(1)   translate(10px, -20px); }
 28%  { transform: scale(0.8, 1) translate(80vw, 30vh) rotate(160deg); }
 40%  { transform: scale(0.8, 1) translate(80vw, 60vh) rotate(160deg); }
@@ -11,9 +11,34 @@ const blobAnimation = keyframes `
 100% { transform: scale(1)   translate(10px, -20px); }
 `;
 
+const blobAnimationTwo = keyframes `
+0%   { transform: scale(1)   translate(80vw, -20px); }
+28%  { transform: scale(0.8, 1) translate(60vw, 30vh) rotate(160deg); }
+40%  { transform: scale(0.8, 1) translate(30vw, 60vh) rotate(160deg); }
+78%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+80%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+100% { transform: scale(1)   translate(10px, -20px); }
+`;
+
+const blobAnimationThree = keyframes `
+0%   { transform: scale(1)   translate(60vw, -20px); }
+28%  { transform: scale(0.8, 1) translate(80vw, 30vh) rotate(160deg); }
+40%  { transform: scale(0.8, 1) translate(700vw, 60vh) rotate(160deg); }
+78%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+80%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+100% { transform: scale(1)   translate(10px, -20px); }
+`;
 function chooseAnimation (){
-    const num = Math.floor(Math.random() * 3)
+    const num = Math.floor(Math.random() * 3);
     console.log(num, "animation num")
+    switch(num){
+        case 0:
+            return blobAnimationOne;
+        case 1:
+            return blobAnimationTwo
+        case 2:
+            return blobAnimationThree
+    }
 }
 
 const StyledBlob = styled.div`
@@ -23,7 +48,7 @@ left: 0;
 fill: #023F92;
 width: 10vmax;
 z-index: -2;
-animation: ${blobAnimation} 80s ease-in-out infinite;
+animation: ${chooseAnimation()} 80s ease-in-out infinite;
 transformOrigin: 60% 50%
 `;
 
