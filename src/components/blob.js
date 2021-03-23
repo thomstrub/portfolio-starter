@@ -28,6 +28,7 @@ const blobAnimationThree = keyframes `
 80%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
 100% { transform: scale(1)   translate(10px, -20px); }
 `;
+
 function chooseAnimation (){
     const num = Math.floor(Math.random() * 3);
     console.log(num, "animation num")
@@ -50,7 +51,15 @@ left: 0;
 fill: #023F92;
 width: 10vmax;
 z-index: -2;
-animation: ${chooseAnimation()} 80s ease-in-out infinite;
+animation: animation-one 80s ease-in-out infinite;
+@keyframes animation-one {
+    0%   { transform: scale(1)   translate(1vw, -20px); }
+    15%  { transform: scale(0.8, 1) translate(80vw, 30vh) rotate(160deg); }
+    32%  { transform: scale(0.8, 1) translate(70vw, 60vh) rotate(160deg); }
+    78%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+    80%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+    100% { transform: scale(1)   translate(10px, -20px); }
+}
 transformOrigin: 60% 50%
 `;
 
@@ -61,7 +70,34 @@ left: 10;
 fill: #023F92;
 width: 10vmax;
 z-index: -3;
-animation: ${chooseAnimation()} 80s ease-in-out infinite;
+animation: animation-two 80s ease-in-out infinite;
+@keyframes animation-two {
+    0%   { transform: scale(1)   translate(80vw, -20px); }
+    28%  { transform: scale(0.8, 1) translate(60vw, 30vh) rotate(160deg); }
+    40%  { transform: scale(0.8, 1) translate(30vw, 60vh) rotate(160deg); }
+    78%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+    80%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+    100% { transform: scale(1)   translate(10px, -20px); }
+}
+transformOrigin: 60% 50%
+`;
+
+const StyledBlobThree = styled.div`
+position: absolute;
+top: 10;
+left: 10;
+fill: #023F92;
+width: 10vmax;
+z-index: -3;
+animation: animation-three 80s ease-in-out infinite;
+@keyframes animation-three {
+    0%   { transform: scale(1)   translate(60vw, 60vw); }
+    28%  { transform: scale(0.8, 1) translate(80vw, 30vh) rotate(-160deg); }
+    40%  { transform: scale(0.8, 1) translate(700vw, 60vh) rotate(160deg); }
+    78%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+    80%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+    100% { transform: scale(1)   translate(10px, -20px); }
+}
 transformOrigin: 60% 50%
 `;
 
@@ -99,25 +135,34 @@ export default function Blob({shape}){
  
     
 
-    return (
-        // <div className="blob"
-        //       style= {
-        //         {position: "absolute",
-        //         top: 0,
-        //         left: 0,
-        //         fill: "#023F92",
-        //         width: "10vmax",
-        //         zIndex: -2,
-        //         animation: "move 80s ease-in-out infinite",
-        //         transformOrigin: "60% 50%"}
-        //       }>
-        //     { blobShape(shape) }
+    // return (
+    //     // <div className="blob"
+    //     //       style= {
+    //     //         {position: "absolute",
+    //     //         top: 0,
+    //     //         left: 0,
+    //     //         fill: "#023F92",
+    //     //         width: "10vmax",
+    //     //         zIndex: -2,
+    //     //         animation: "move 80s ease-in-out infinite",
+    //     //         transformOrigin: "60% 50%"}
+    //     //       }>
+    //     //     { blobShape(shape) }
             
-        // </div>
-        shape === "one" ? 
-            <StyledBlobOne>{ blobShape(shape) }</StyledBlobOne> 
-            :
-            <StyledBlobTwo>{ blobShape(shape) }</StyledBlobTwo> 
+    //     // </div>
+    //     swit
+    //     shape === "one" ? 
+    //         <StyledBlobOne className="one">{ blobShape(shape) }</StyledBlobOne> 
+    //         :
+    //         <StyledBlobTwo className="two">{ blobShape(shape) }</StyledBlobTwo> 
         
-    )
+    // )
+    switch(shape){
+        case "one":
+            return <StyledBlobOne className="one">{ blobShape(shape) }</StyledBlobOne>
+        case "two":
+            return <StyledBlobTwo className="two">{ blobShape(shape) }</StyledBlobTwo>
+        case "three":
+            return <StyledBlobThree className="three">{ blobShape(shape) }</StyledBlobThree>
+    }
 }
