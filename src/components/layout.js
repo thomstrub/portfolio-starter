@@ -30,6 +30,8 @@ const Layout = ({ children }) => {
       <div><Blob shape="one"/></div>
       
       <div><Blob shape="two"/></div>
+
+      <div><Blob shape="three"/></div>
       
       
       <div

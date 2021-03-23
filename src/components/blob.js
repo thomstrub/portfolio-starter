@@ -45,11 +45,12 @@ function chooseAnimation (){
 }
 
 const StyledBlobOne = styled.div`
+opacity: .75;
 position: absolute;
 top: 0;
 left: 0;
 fill: #023F92;
-width: 10vmax;
+width: 20vmax;
 z-index: -2;
 animation: animation-one 80s ease-in-out infinite;
 @keyframes animation-one {
@@ -64,39 +65,41 @@ transformOrigin: 60% 50%
 `;
 
 const StyledBlobTwo = styled.div`
+opacity: .33;
 position: absolute;
 top: 10;
 left: 10;
 fill: #023F92;
-width: 10vmax;
-z-index: -3;
+width: 15vmax;
+z-index: -1;
 animation: animation-two 80s ease-in-out infinite;
 @keyframes animation-two {
     0%   { transform: scale(1)   translate(80vw, -20px); }
     28%  { transform: scale(0.8, 1) translate(60vw, 30vh) rotate(160deg); }
     40%  { transform: scale(0.8, 1) translate(30vw, 60vh) rotate(160deg); }
-    78%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
+    78%  { transform: scale(1.3) translate(0vw, 50vh) rotate(20deg); }
     80%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
-    100% { transform: scale(1)   translate(10px, -20px); }
+    100% { transform: scale(1)   translate(80vw, -20px); }
 }
 transformOrigin: 60% 50%
 `;
 
 const StyledBlobThree = styled.div`
+opacity: .55;
 position: absolute;
 top: 10;
 left: 10;
 fill: #023F92;
-width: 10vmax;
+width: 30vmax;
 z-index: -3;
 animation: animation-three 80s ease-in-out infinite;
 @keyframes animation-three {
     0%   { transform: scale(1)   translate(60vw, 60vw); }
     28%  { transform: scale(0.8, 1) translate(80vw, 30vh) rotate(-160deg); }
-    40%  { transform: scale(0.8, 1) translate(700vw, 60vh) rotate(160deg); }
+    40%  { transform: scale(0.8, 1) translate(70vw, 60vh) rotate(160deg); }
     78%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
     80%  { transform: scale(1.3) translate(0vw, 50vh) rotate(-20deg); }
-    100% { transform: scale(1)   translate(10px, -20px); }
+    100% { transform: scale(1)   translate(60vw, 60vw); }
 }
 transformOrigin: 60% 50%
 `;
