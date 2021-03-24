@@ -93,31 +93,7 @@ export default function Blob({shape, style}){
         }
     }
 
- 
-    
 
-    // return (
-    //     // <div className="blob"
-    //     //       style= {
-    //     //         {position: "absolute",
-    //     //         top: 0,
-    //     //         left: 0,
-    //     //         fill: "#023F92",
-    //     //         width: "10vmax",
-    //     //         zIndex: -2,
-    //     //         animation: "move 80s ease-in-out infinite",
-    //     //         transformOrigin: "60% 50%"}
-    //     //       }>
-    //     //     { blobShape(shape) }
-            
-    //     // </div>
-    //     swit
-    //     shape === "one" ? 
-    //         <StyledBlobOne className="one">{ blobShape(shape) }</StyledBlobOne> 
-    //         :
-    //         <StyledBlobTwo className="two">{ blobShape(shape) }</StyledBlobTwo> 
-        
-    // )
     switch(style){
         case "one":
             return <StyledBlobOne className="one">{ blobShape(shape) }</StyledBlobOne>
