@@ -24,15 +24,41 @@ const Layout = ({ children }) => {
     }
   `)
 
+  function returnBlobs(){
+    const random = Math.floor(Math.random()* 3)
+    switch(random){
+      case 0:
+        return(
+          <>
+            <div><Blob shape="one" style="one"/></div>
+            <div><Blob shape="two" style="two"/></div>
+            <div><Blob shape="three" style="three"/></div>
+          </>
+        )
+      case 1:
+        return(
+          <>
+            <div><Blob shape="one" style="three"/></div>
+            <div><Blob shape="two" style="one"/></div>
+            <div><Blob shape="three" style="two"/></div>
+          </>
+        )
+      case 2:
+        return(
+          <>
+            <div><Blob shape="one" style="three"/></div>
+            <div><Blob shape="two" style="two"/></div>
+            <div><Blob shape="three" style="one"/></div>
+          </>
+        )
+    }
+  }
+
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div><Blob shape="one"/></div>
-      
-      <div><Blob shape="two"/></div>
 
-      <div><Blob shape="three"/></div>
-      
+      {returnBlobs()}
       
       <div
         style={{

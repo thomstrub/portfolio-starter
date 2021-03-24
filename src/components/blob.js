@@ -13,9 +13,9 @@ z-index: -2;
 animation: animation-one 80s ease-in-out infinite;
 @keyframes animation-one {
     0%   { transform: scale(1)   translate(1vw, -20px); }
-    15%  { transform: skewX(25deg)  scale(0.8, 1) translate(80vw, 30vh) rotate(160deg); }
+    28%  { transform: skewX(25deg)  scale(0.8, 1) translate(80vw, 30vh) rotate(160deg); }
     32%  { transform: skewX(25deg)  scale(0.8, 1) translate(60vw, 40vh) rotate(160deg); }
-    78%  { transform: skewX(25deg)  scale(1.3) translate(30vw, 30vh) rotate(20deg); }
+    68%  { transform: skewX(25deg)  scale(1.3) translate(30vw, 30vh) rotate(20deg); }
     80%  { transform: skewX(-50deg)  scale(1.3) translate(20vw, 20vh) rotate(40deg); }
     100% { transform: skewX(-25deg) scale(1)   translate(1vw, -20px); }
 }
@@ -62,7 +62,7 @@ animation: animation-three 80s ease-in-out infinite;
 transformOrigin: 60% 50%
 `;
 
-export default function Blob({shape}){
+export default function Blob({shape, style}){
 
     function blobShape(shape){
         switch (shape) {
@@ -118,7 +118,7 @@ export default function Blob({shape}){
     //         <StyledBlobTwo className="two">{ blobShape(shape) }</StyledBlobTwo> 
         
     // )
-    switch(shape){
+    switch(style){
         case "one":
             return <StyledBlobOne className="one">{ blobShape(shape) }</StyledBlobOne>
         case "two":
